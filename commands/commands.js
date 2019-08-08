@@ -238,7 +238,8 @@ module.exports= (async()=>{
                 return;
             }, 30000);
         };
-        await radelfbot.say('alfred1203', 'I am a twitch-chat-bot currently being developed by alfred1203! PogChamp Kappa').catch((err)=>{_.logger('error', err)})
+        await radelfbot.say('alfred1203', 'I am a twitch-chat-bot currently being developed by alfred1203! PogChamp Kappa').catch((err)=>{_.logger('error', err)});
+                await radelfbot.say('alfred1203', "You can fine my codes here: https://github.com/alfred12398/radelfbot").catch((err)=>{_.logger('error', err)});
         return;
     };
 
