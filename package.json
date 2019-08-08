@@ -1,0 +1,14 @@
+{
+    "name": "radelfbot",
+    "description": "a twitch/discord bot",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": {
+        "name": "alfred boekhoudt",
+        "email": "vgalfred@hotmail.com"
+    },
+    "license": "MIT",
+    "dependencies": {
+
+    }
+}
