@@ -7,18 +7,19 @@ module.exports = (async()=>{
    
     const webhook = new twitchWebhooks({
         client_id: secrets.clientId,
-        callback: 'http://rad3lf.tk:85',
+        callback: 'http://www.alfred1203.com:85',
+        auth: secrets.identity.bot.bearer,
         secret: secrets.clientSecret,
         listen: {
             port: 85,
-            host: '192.168.0.16'
+            host: '192.168.0.15'
         }
     });
-
+    
     webhook.on('users/follows',async({event})=>{
         var user = event.data[0]['from_name'];
         _.notice('follows', `${user} started following you!`);
-        await radelfbot.say('alfred1203', `Thank you @${user} for following`).catch(err => _.logger("error", err));
+        await radelfbot.say('alfred1203', `Thank you @${user} for following`);
         return;
     });
 
@@ -32,7 +33,7 @@ module.exports = (async()=>{
         return;
     });
 
-    webhook.subscribe('users/follows',{
+    webhook.subscribe(`users/follows`,{
         first: 1,
         to_id: secrets.streamerId
     }).then(()=>{
@@ -41,8 +42,9 @@ module.exports = (async()=>{
         _.logger('error', `follows webhook: ${err}`);
     });
 
-    webhook.subscribe('streams',{
-        user_id: secrets.streamerId
+    webhook.subscribe(`streams`,{
+        user_id: secrets.streamerId,
+        
     }).then(()=>{
         _.logger('info', "subscribed to twitch stream webhooks ");
     }).catch((err)=>{
