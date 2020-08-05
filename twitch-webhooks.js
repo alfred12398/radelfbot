@@ -12,7 +12,7 @@ module.exports = (async()=>{
         secret: secrets.clientSecret,
         listen: {
             port: 85,
-            host: '192.168.0.15'
+            host: '0.0.0.0'
         }
     });
     
